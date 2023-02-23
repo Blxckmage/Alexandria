@@ -24,7 +24,7 @@
     <main class="container-fluid w-100" role="main">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
-                <a class="u-login-form py-3 mb-auto" href="index.html">
+                <a class="u-login-form py-3 mb-auto" href="/">
                     <img class="img-fluid" src="./assets/img/logo.png" width="160" alt="stream dashboard ui kit">
                 </a>
 
@@ -37,25 +37,39 @@
                         </button>
                     </div>
                 @endif
+                @if (session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fa fa-check-circle alert-icon mr-3"></i>
+                        <span>{{ session('loginError') }}</span>
+                        <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
                 <div class="u-login-form">
-                    <form class="mb-3" action="/">
+                    <form class="mb-3" action="/login" method="post">
+                        @csrf
                         <div class="mb-3">
                             <h1 class="h2">Welcome!</h1>
-                            <p class="small">Login to your dashboard with your registered email address and password.
-                            </p>
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="email">Email</label>
-                            <input id="email" class="form-control" name="email" type="email"
-                                placeholder="john.doe@example.com">
+                            <input id="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" type="email" placeholder="albert.camus@example.com" autofocus required
+                                value="{{ old('email') }}">
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="password">Password</label>
                             <input id="password" class="form-control" name="password" type="password"
-                                placeholder="Your password">
+                                placeholder="Your password" required>
                         </div>
 
                         <button class="btn btn-primary btn-block" type="submit">Login</button>
@@ -67,8 +81,6 @@
                 </div>
 
                 <div class="u-login-form text-muted py-3 mt-auto">
-                    <small><i class="far fa-question-circle mr-1"></i> If you are not able to sign in, please <a
-                            href="#">contact us</a>.</small>
                 </div>
             </div>
 

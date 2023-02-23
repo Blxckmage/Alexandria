@@ -74,7 +74,7 @@
                     </form>
 
                     <p class="small">
-                        Already have an account? <a href="/sign-in">Login here</a>
+                        Already have an account? <a href="/login">Login here</a>
                     </p>
                 </div>
 

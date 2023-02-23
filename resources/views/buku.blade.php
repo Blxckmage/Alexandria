@@ -12,7 +12,7 @@
                                 <h5 class="h6 text-muted text-uppercase mb-2">
                                     Jumlah Buku
                                 </h5>
-                                <span class="h2 mb-0">0</span>
+                                <span class="h2 mb-0">3</span>
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                                 <h5 class="h6 text-muted text-uppercase mb-2">
                                     Jumlah Kategori
                                 </h5>
-                                <span class="h2 mb-0">0</span>
+                                <span class="h2 mb-0">2</span>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                 <h5 class="h6 text-muted text-uppercase mb-2">
                                     Jumlah Pengarang
                                 </h5>
-                                <span class="h2 mb-0">0</span>
+                                <span class="h2 mb-0">3</span>
                             </div>
                         </div>
                     </div>
