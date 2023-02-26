@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\BorrowExample;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class BorrowExampleSeeder extends Seeder
+class BookControllerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +14,6 @@ class BorrowExampleSeeder extends Seeder
      */
     public function run()
     {
-        BorrowExample::factory()->count(50)->create();
+        //
     }
 }

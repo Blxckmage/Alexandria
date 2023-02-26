@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="col-lg-auto">
-                <h1 class="text-primary">Riwayat Peminjaman</h1>
+                <h1 class="text-primary">Daftar Buku</h1>
                 <div class="card mb-4">
                     <div class="table-responsive p-3">
                         <table class="table align-items-center justify-content-center table-flush table-hover"

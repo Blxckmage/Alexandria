@@ -24,7 +24,7 @@
     <main class="container-fluid w-100" role="main">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
-                <a class="u-login-form py-3 mb-auto" href="/">
+                <a class="u-login-form py-3 mb-auto" href="/login">
                     <img class="img-fluid" src="./assets/img/logo.png" width="160" alt="stream dashboard ui kit">
                 </a>
 

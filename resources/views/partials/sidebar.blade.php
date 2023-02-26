@@ -42,19 +42,19 @@
                             <ul id="subMenu3" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
                                 style="">
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="">
+                                    <a class="u-sidebar-nav-menu__link" href="/tambah-buku">
                                         <span class="u-sidebar-nav-menu__item-icon">T</span>
                                         <span class="u-sidebar-nav-menu__item-title">Tambah Buku</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="">
+                                    <a class="u-sidebar-nav-menu__link" href="/tambah-kategori">
                                         <span class="u-sidebar-nav-menu__item-icon">T</span>
                                         <span class="u-sidebar-nav-menu__item-title">Tambah Kategori</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="">
+                                    <a class="u-sidebar-nav-menu__link" href="/tambah-penerbit">
                                         <span class="u-sidebar-nav-menu__item-icon">T</span>
                                         <span class="u-sidebar-nav-menu__item-title">Tambah Penerbit</span>
                                     </a>

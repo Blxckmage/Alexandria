@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_kode')->constrained('categories');
-            $table->foreignId('penerbit_kode')->constrained('publishers');
+            $table->foreignid('kategori_kode')->constrained('categories')->onupdate('cascade')->ondelete('cascade');
+            $table->foreignid('penerbit_kode')->constrained('publishers')->onupdate('cascade')->ondelete('cascade');
             $table->string('buku_judul');
             $table->unsignedBigInteger('buku_jumhal');
             $table->text('buku_deskripsi');

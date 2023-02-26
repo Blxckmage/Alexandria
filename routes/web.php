@@ -1,8 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+
+// Login Pages
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+
+// Admin Pages
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PublisherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +42,19 @@ Route::get('/peminjaman', function () {
     return view('peminjaman');
 });
 
+Route::get('/tambah-penerbit', function () {
+    return view('admin.tambah-penerbit');
+});
+
+Route::get('/tambah-kategori', [CategoryController::class, 'index']);
+Route::post('/tambah-kategori', [CategoryController::class, 'store']);
+Route::delete('/tambah-kategori/{category}', [CategoryController::class, 'destroy']);
+
+Route::get('/tambah-penerbit', [PublisherController::class, 'index']);
+Route::post('/tambah-penerbit', [PublisherController::class, 'store']);
+Route::delete('/tambah-penerbit/{publisher}', [PublisherController::class, 'destroy']);
+
+Route::get('/tambah-buku', [BookController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
