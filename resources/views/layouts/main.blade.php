@@ -14,11 +14,12 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
     <!-- Components Vendor Styles -->
-    <link rel="stylesheet" href="./assets/vendor/font-awesome/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('./assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}" />
 
     <!-- Theme Styles -->
-    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}" />
 
     <!-- Custom Charts -->
     <style>

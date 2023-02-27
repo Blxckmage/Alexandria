@@ -65,41 +65,24 @@
                             id="dataTableHover" style="font-size:.7rem">
                             <thead>
                                 <tr>
-                                    <th scope="col">No.</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Judul Buku</th>
-                                    <th scope="col">Jumlah Halaman</th>
-                                    <th scope="col">Pengarang Buku</th>
                                     <th scope="col">Kategori</th>
-                                    <th scope="col">Tahun Terbit</th>
-                                    <th scope="col">Nama Penerbit</th>
+                                    <th scope="col">Pengarang</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <td>1</td>
-                                <td>Crime And Punishment</td>
-                                <td>129</td>
-                                <td>Dostoyevsky</td>
-                                <td>Psychological Fiction</td>
-                                <td>1866</td>
-                                <td>Penguin Classics</td>
-                            </tbody>
-                            <tbody>
-                                <td>2</td>
-                                <td>The Myth Of Sisyphus</td>
-                                <td>210</td>
-                                <td>Albert Camus</td>
-                                <td>Philosophy</td>
-                                <td>1942</td>
-                                <td>Persephone Books</td>
-                            </tbody>
-                            <tbody>
-                                <td>3</td>
-                                <td>The Metamorphosis</td>
-                                <td>323</td>
-                                <td>Franz Kafka</td>
-                                <td>Philosophy</td>
-                                <td>1915</td>
-                                <td>Renard Press</td>
+                                @foreach ($books as $book)
+                                    <tr>
+                                        <td>{{ $book->id }}</td>
+                                        <td>{{ $book->buku_judul }}</td>
+                                        <td>{{ $book->category->kategori_nama }}</td>
+                                        <td>{{ $book->buku_pengarang }}</td>
+                                        <td><a href="/books/{{ $book->id }}" class="btn btn-primary btn-sm">Details</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

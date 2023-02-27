@@ -18,7 +18,7 @@
                         </li>
 
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="/buku">
+                            <a class="u-sidebar-nav-menu__link" href="/books">
                                 <span class="u-sidebar-nav-menu__item-icon">B</span>
                                 <span class="u-sidebar-nav-menu__item-title">Buku</span>
                             </a>
