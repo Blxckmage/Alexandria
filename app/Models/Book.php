@@ -21,10 +21,10 @@ class Book extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'kategori_kode');
     }
     public function publisher()
     {
-        return $this->belongsTo(Publisher::class);
+        return $this->belongsTo(Publisher::class, 'penerbit_kode');
     }
 }

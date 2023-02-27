@@ -35,18 +35,50 @@
             </div>
         @endif
         <div class="u-body">
-            <form method="post" action='/tambah-kategori'>
+            <form method="post" action='/tambah-buku'>
                 @csrf
-                <h1 class="text-primary">Tambah Kategori</h1>
+                <h1 class="text-primary">Tambah Buku</h1>
                 <div class="form-group">
-                    <label for="kategori_nama">Nama Kategori</label>
-                    <input type="text" class="form-control" name="kategori_nama" id="kategori_nama" required>
+                    <label for="kategori_kode">Kategori: </label>
+                    <select name="kategori_kode" class="custom-select mb-3" id="kategori">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->kategori_nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Add Data</button>
+                <div class="form-group">
+                    <label for="penerbit_kode">Penerbit: </label>
+                    <select name="penerbit_kode" class="custom-select" id="penerbit">
+                        @foreach ($publishers as $publisher)
+                            <option value="{{ $publisher->id }}">{{ $publisher->penerbit_nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="buku_judul">Judul Buku</label>
+                    <input type="text" class="form-control" name="buku_judul" id="buku_judul" required>
+                </div>
+                <div class="form-group">
+                    <label for="buku_jumhal">Jumlah Halaman</label>
+                    <input type="number" class="form-control" name="buku_jumhal" id="buku_jumhal" required>
+                </div>
+                <div class="form-group">
+                    <label for="buku_deskripsi">Deskripsi Buku</label>
+                    <textarea class="form-control" name="buku_deskripsi" id="buku_deskripsi" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="buku_pengarang">Pengarang Buku</label>
+                    <input type="text" class="form-control" name="buku_pengarang" id="buku_pengarang" required>
+                </div>
+                <div class="form-group">
+                    <label for="buku_tahun_terbit">Tahun Terbit</label>
+                    <input type="number" class="form-control" name="buku_tahun_terbit" id="buku_tahun_terbit" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
             </form>
             <hr class="my-4">
             <div>
-                <h1 class="text-primary">Daftar Kategori</h1>
+                <h1 class="text-primary">Daftar Buku</h1>
                 <div class="card mb-4">
                     <div class="table-responsive p-3">
                         <table class="table align-items-center justify-content-center table-flush table-hover"
@@ -54,14 +86,28 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Nama Kategori</th>
+                                    <th scope="col">Judul Buku</th>
+                                    <th scope="col">Kategori</th>
+                                    <th scope="col">Penerbit</th>
+                                    <th scope="col">Pengarang</th>
+                                    <th scope="col">Tahun Terbit</th>
+                                    <th scope="col">Jumlah Halaman</th>
+                                    <th scope="col">Deskripsi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                @foreach ($books as $book)
+                                    <tr>
+                                        <td>{{ $book->id }}</td>
+                                        <td>{{ $book->buku_judul }}</td>
+                                        <td>{{ $book->category->kategori_nama }}</td>
+                                        <td>{{ $book->publisher->penerbit_nama }}</td>
+                                        <td>{{ $book->buku_pengarang }}</td>
+                                        <td>{{ $book->buku_tahun_terbit }}</td>
+                                        <td>{{ $book->buku_jumhal }}</td>
+                                        <td>{{ $book->buku_deskripsi }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

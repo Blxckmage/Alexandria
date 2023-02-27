@@ -2,14 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\Publisher;
+
 // Login Pages
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+
 
 // Admin Pages
+use App\Http\Controllers\AdminBookController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminPublisherController;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PublisherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +36,8 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/buku', function () {
-    return view('buku');
-});
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/{id}', [BookController::class, 'show']);
 
 Route::get('/kategori', function () {
     return view('kategori');
@@ -46,15 +51,16 @@ Route::get('/tambah-penerbit', function () {
     return view('admin.tambah-penerbit');
 });
 
-Route::get('/tambah-kategori', [CategoryController::class, 'index']);
-Route::post('/tambah-kategori', [CategoryController::class, 'store']);
-Route::delete('/tambah-kategori/{category}', [CategoryController::class, 'destroy']);
+Route::get('/tambah-kategori', [AdminCategoryController::class, 'index']);
+Route::post('/tambah-kategori', [AdminCategoryController::class, 'store']);
+Route::delete('/tambah-kategori/{category}', [AdminCategoryController::class, 'destroy']);
 
-Route::get('/tambah-penerbit', [PublisherController::class, 'index']);
-Route::post('/tambah-penerbit', [PublisherController::class, 'store']);
-Route::delete('/tambah-penerbit/{publisher}', [PublisherController::class, 'destroy']);
+Route::get('/tambah-penerbit', [AdminPublisherController::class, 'index']);
+Route::post('/tambah-penerbit', [AdminPublisherController::class, 'store']);
+Route::delete('/tambah-penerbit/{publisher}', [AdminPublisherController::class, 'destroy']);
 
-Route::get('/tambah-buku', [BookController::class, 'index']);
+Route::get('/tambah-buku', [AdminBookController::class, 'index']);
+Route::post('/tambah-buku', [AdminBookController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
