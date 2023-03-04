@@ -34,6 +34,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-sm-6 col-xl-3 mb-4">
+                    <div class="card">
+                        <div class="card-body media align-items-center px-xl-3">
+                            <div class="media-body">
+                                <h5 class="h6 text-muted text-uppercase mb-2">
+                                    Jumlah Kategori
+                                </h5>
+                                <span class="h2 mb-0">
+                                    {{ $categories->count() }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-auto">
                     <h1 class="text-primary">Daftar Buku</h1>
                     <div class="card mb-4">

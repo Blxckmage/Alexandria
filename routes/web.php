@@ -47,6 +47,7 @@ Route::get('/kategori', function () {
 });
 
 Route::get('/peminjaman', [PeminjamanController::class, 'index']);
+Route::post('/peminjaman/search', [PeminjamanController::class, 'search']);
 
 Route::get('/tambah-penerbit', function () {
     return view('admin.tambah-penerbit');
