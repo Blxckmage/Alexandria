@@ -30,6 +30,12 @@ class AdminBookController extends Controller
         ]);
 
         Book::create($validatedData);
-        return redirect()->back()->with('success', 'Category added successfully.');
+        return redirect()->back()->with('success', 'Book added successfully.');
+    }
+
+    public function destroy(Book $book)
+    {
+        Book::destroy($book->id);
+        return redirect('tambah-buku')->with('success', 'Book has been deleted!');
     }
 }

@@ -15,7 +15,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPublisherController;
+
+// Main Pages
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +46,7 @@ Route::get('/kategori', function () {
     return view('kategori');
 });
 
-Route::get('/peminjaman', function () {
-    return view('peminjaman');
-});
+Route::get('/peminjaman', [PeminjamanController::class, 'index']);
 
 Route::get('/tambah-penerbit', function () {
     return view('admin.tambah-penerbit');
@@ -61,6 +62,7 @@ Route::delete('/tambah-penerbit/{publisher}', [AdminPublisherController::class, 
 
 Route::get('/tambah-buku', [AdminBookController::class, 'index']);
 Route::post('/tambah-buku', [AdminBookController::class, 'store']);
+Route::delete('/tambah-buku/{book}', [AdminBookController::class, 'destroy']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
