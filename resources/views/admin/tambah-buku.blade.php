@@ -39,6 +39,10 @@
                 @csrf
                 <h1 class="text-primary">Tambah Buku</h1>
                 <div class="form-group">
+                    <label for="buku_judul">Judul Buku</label>
+                    <input type="text" class="form-control" name="buku_judul" id="buku_judul" required>
+                </div>
+                <div class="form-group">
                     <label for="kategori_kode">Kategori: </label>
                     <select name="kategori_kode" class="custom-select mb-3" id="kategori">
                         @foreach ($categories as $category)
@@ -53,10 +57,6 @@
                             <option value="{{ $publisher->id }}">{{ $publisher->penerbit_nama }}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="buku_judul">Judul Buku</label>
-                    <input type="text" class="form-control" name="buku_judul" id="buku_judul" required>
                 </div>
                 <div class="form-group">
                     <label for="buku_jumhal">Jumlah Halaman</label>
@@ -93,6 +93,7 @@
                                     <th scope="col">Tahun Terbit</th>
                                     <th scope="col">Jumlah Halaman</th>
                                     <th scope="col">Deskripsi</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,6 +107,15 @@
                                         <td>{{ $book->buku_tahun_terbit }}</td>
                                         <td>{{ $book->buku_jumhal }}</td>
                                         <td>{{ $book->buku_deskripsi }}</td>
+                                        <td>
+                                            <form method="post" action="/tambah-buku/{{ $book->id }}"
+                                                style="display:inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure?')"><i
+                                                        class="fas fa-trash-alt"></i></button>
+                                            </form>
                                     </tr>
                                 @endforeach
                             </tbody>
