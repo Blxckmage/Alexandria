@@ -25,7 +25,7 @@
                         </li>
 
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="/peminjaman">
+                            <a class="u-sidebar-nav-menu__link" href="/borrowing">
                                 <span class="u-sidebar-nav-menu__item-icon">P</span>
                                 <span class="u-sidebar-nav-menu__item-title">Peminjaman</span>
                             </a>
@@ -59,7 +59,28 @@
                                         <span class="u-sidebar-nav-menu__item-title">Tambah Penerbit</span>
                                     </a>
                                 </li>
+                                <li class="u-sidebar-nav-menu__item">
+                                    <a class="u-sidebar-nav-menu__link" href="/approval">
+                                        <span class="u-sidebar-nav-menu__item-icon">A</span>
+                                        <span class="u-sidebar-nav-menu__item-title">Approve Peminjaman</span>
+                                    </a>
+                                </li>
                             </ul>
+                        </li>
+
+                        <hr />
+
+                        <li class="u-sidebar-nav-menu__item">
+                            <a class="u-sidebar-nav-menu__link" href="/">
+                                <span class="u-sidebar-nav-menu__item-icon">T</span>
+                                <span class="u-sidebar-nav-menu__item-title">Tambah Petugas</span>
+                            </a>
+                        </li>
+                        <li class="u-sidebar-nav-menu__item">
+                            <a class="u-sidebar-nav-menu__link" href="/">
+                                <span class="u-sidebar-nav-menu__item-icon">B</span>
+                                <span class="u-sidebar-nav-menu__item-title">Bikin Laporan</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>

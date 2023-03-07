@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('borrowings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('petugas_kode')->constrained('employees');
-            $table->foreignId('peminjam_kode')->constrained('borrowers');
+            $table->foreignId('peminjam_kode')->constrained('users');
             $table->date('peminjaman_tgl');
             $table->date('peminjaman_tgl_hrs_kembali')->nullable();
 

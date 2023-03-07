@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('registration_cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('petugas_kode')->constrained('employees');
-            $table->foreignId('peminjam_kode')->constrained('borrowers');
+            $table->foreignId('peminjam_kode')->constrained('users');
             $table->date('kartu_tgl_pembuatan');
             $table->date('kartu_tgl_akhir');
             $table->boolean('kartu_status_aktif');

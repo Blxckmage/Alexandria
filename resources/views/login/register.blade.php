@@ -36,7 +36,6 @@
                 <div class="u-login-form">
                     <form class="mb-3" action="/register" method="POST">
                         @csrf
-
                         <div class="mb-3">
                             <h1 class="h2">Create Your Account</h1>
                             <p class="small">Login to your dashboard with your registered email address and password.
@@ -44,16 +43,17 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="name">Your name</label>
-                            <input id="name" class="form-control rounded-top @error('name') is-invalid @enderror"
-                                name="name" type="text" placeholder="John Doe" required>
-                            @error('name')
+                            <label for="peminjam_nama">your name</label>
+                            <input id="peminjam_nama"
+                                class="form-control rounded-top @error('peminjam_nama') is-invalid @enderror"
+                                name="peminjam_nama" type="text" placeholder="john doe" required>
+                            @error('peminjam_nama')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="email">Your email</label>
+                            <label for="email">your email</label>
                             <input id="email" class="form-control rounded-top @error('email') is-invalid @enderror"
                                 name="email" type="email" placeholder="john.doe@example.com" required>
                             @error('email')
@@ -62,14 +62,35 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="password">Password</label>
+                            <label for="password">password</label>
                             <input id="password"
                                 class="form-control rounded-top @error('password') is-invalid @enderror" name="password"
-                                type="password" placeholder="Enter your password" required>
+                                type="password" placeholder="enter your password" required>
                             @error('password')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="form-group mb-4">
+                            <label for="peminjam_alamat">your address</label>
+                            <input id="peminjam_alamat"
+                                class="form-control rounded-top @error('peminjam_alamat') is-invalid @enderror"
+                                name="peminjam_alamat" type="text" placeholder="enter your address" required>
+                            @error('peminjam_alamat')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="peminjam_telp">your phone number</label>
+                            <input id="peminjam_telp"
+                                class="form-control rounded-top @error('peminjam_telp') is-invalid @enderror"
+                                name="peminjam_telp" type="text" placeholder="enter your phone number" required>
+                            @error('peminjam_telp')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
                     </form>
 

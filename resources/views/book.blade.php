@@ -7,8 +7,8 @@
             <div class="mb-4">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent small p-0">
-                        <li class="breadcrumb-item"><a href="/books">Books</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Book Details</li>
+                        <li class="breadcrumb-item"><a href="/books"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                Back</a></li>
                     </ol>
                 </nav>
             </div>

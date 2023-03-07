@@ -2,23 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Book;
-use App\Models\Category;
-use App\Models\Publisher;
-
 // Login Pages
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 
 
 // Admin Pages
-use App\Http\Controllers\AdminBookController;
-use App\Http\Controllers\AdminCategoryController;
-use App\Http\Controllers\AdminPublisherController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\RegisterController;
 
 // Main Pages
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\PeminjamanController;
+
+// User
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminPublisherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,25 +33,26 @@ use App\Http\Controllers\PeminjamanController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('auth');
 
 Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/account/{name}', [UserController::class, 'index']);
+
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{id}', [BookController::class, 'show']);
 
-Route::get('/kategori', function () {
-    return view('kategori');
-});
+Route::get('/borrowing', [PeminjamanController::class, 'index']);
+Route::post('/borrowing/search', [PeminjamanController::class, 'search']);
 
-Route::get('/peminjaman', [PeminjamanController::class, 'index']);
-Route::post('/peminjaman/search', [PeminjamanController::class, 'search']);
+Route::get('/approval', [ApprovalController::class, 'index'])->name('approval.index');
+Route::post('/approval/approve/{id}', [ApprovalController::class, 'approve']);
+Route::post('/approval/reject/{id}', [ApprovalController::class, 'reject']);
 
-Route::get('/tambah-penerbit', function () {
-    return view('admin.tambah-penerbit');
-});
+Route::get('/borrowing/borrow/{id}', [PeminjamanController::class, 'borrow']);
+Route::post('/borrowing/borrow', [PeminjamanController::class, 'store']);
 
 Route::get('/tambah-kategori', [AdminCategoryController::class, 'index']);
 Route::post('/tambah-kategori', [AdminCategoryController::class, 'store']);

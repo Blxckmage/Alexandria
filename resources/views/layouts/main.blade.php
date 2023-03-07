@@ -64,6 +64,22 @@
     <script src="{{ asset('assets/js/sidebar-nav.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard-page-scripts.js') }}"></script>
+
+    <!-- Password Show  -->
+    <script>
+        function togglePassword() {
+            var passwordInput = $(this).prev('input');
+            if (passwordInput.attr('type') == 'password') {
+                passwordInput.attr('type', 'text');
+                $(this).html('<i class="fa fa-eye-slash"></i>');
+            } else {
+                passwordInput.attr('type', 'password');
+                $(this).html('<i class="fa fa-eye"></i>');
+            }
+        }
+
+        $(document).on('click', '#show-password', togglePassword);
+    </script>
 </body>
 
 </html>
