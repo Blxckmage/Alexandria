@@ -50,8 +50,7 @@
                                     <tr>
                                         <td>{{ $book->id }}</td>
                                         <td>{{ $book->buku_judul }}</td>
-                                        <td>{{ $book->category->kategori_nama }}</td>
-                                        <td>{{ $book->buku_pengarang }}</td>
+                                        <td>{{ $book->category->kategori_nama }}</td> <td>{{ $book->buku_pengarang }}</td>
                                         <td><a href="/books/{{ $book->id }}" class="btn btn-primary btn-sm">Details</a>
                                         </td>
                                     </tr>
