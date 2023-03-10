@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Borrowing;
 use Illuminate\Http\Request;
 use App\Models\BorrowRequest;
 
@@ -29,14 +30,30 @@ class ApprovalController extends Controller
 
     public function approve(Request $request, $id)
     {
-        $borrowingRequest = BorrowRequest::find($id);
+        $borrowingRequest = BorrowRequest::findOrFail($id);
 
-        if (!$borrowingRequest) {
-            return redirect('/approval')->with('error', 'Borrowing request not found.');
+        $borrowingDate = $borrowingRequest->borrowing_date;
+        $returnDate = $borrowingRequest->return_date;
+
+        $borrowing = Borrowing::create([
+            'petugas_kode' => auth()->user()->id,
+            'peminjam_kode' => $borrowingRequest->user->id,
+            'peminjaman_tgl' => $borrowingDate,
+            'peminjaman_tgl_hrs_kembali' => $returnDate,
+        ]);
+
+        $book = $borrowingRequest->book;
+        if ($book) {
+            $borrowing->details()->create([
+                'buku_kode' => $book->id,
+                'peminjaman_kode' => $borrowing->id,
+                'detail_tgl_kembali' => $returnDate,
+                'detail_denda' => 0,
+                'detail_status_kembali' => false,
+            ]);
         }
 
-        $borrowingRequest->status = 'approved';
-        $borrowingRequest->save();
+        $borrowingRequest->update(['status' => 'approved']);
 
         return redirect('/approval')->with('success', 'Borrowing request approved.');
     }
@@ -49,8 +66,7 @@ class ApprovalController extends Controller
             return redirect('/approval')->with('error', 'Borrowing request not found.');
         }
 
-        $borrowingRequest->status = 'rejected';
-        $borrowingRequest->save();
+        $borrowingRequest->update(['status' => 'rejected']);
 
         return redirect('/approval')->with('success', 'Borrowing request rejected.');
     }
