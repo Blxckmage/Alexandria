@@ -22,6 +22,9 @@
 
     <!-- Theme Styles -->
     <link rel="stylesheet" href="./assets/css/theme.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}" />
 </head>
 <!-- End Head -->
 
@@ -30,7 +33,7 @@
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
                 <a class="u-login-form py-3 mb-auto" href="index.html">
-                    <img class="img-fluid" src="./assets/img/logo.png" width="160" alt="Stream Dashboard UI Kit">
+                    <h1 class="text-primary"><b><i class="m-2 fas fa-book-open"></i>Alexandria</b></h1>
                 </a>
 
                 <div class="u-login-form">
@@ -43,17 +46,16 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="peminjam_nama">your name</label>
-                            <input id="peminjam_nama"
-                                class="form-control rounded-top @error('peminjam_nama') is-invalid @enderror"
-                                name="peminjam_nama" type="text" placeholder="john doe" required>
-                            @error('peminjam_nama')
+                            <label for="nama">Your Name</label>
+                            <input id="nama" class="form-control rounded-top @error('nama') is-invalid @enderror"
+                                name="nama" type="text" placeholder="John Doe" required>
+                            @error('nama')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="email">your email</label>
+                            <label for="email">Your Email</label>
                             <input id="email" class="form-control rounded-top @error('email') is-invalid @enderror"
                                 name="email" type="email" placeholder="john.doe@example.com" required>
                             @error('email')
@@ -72,21 +74,19 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="peminjam_alamat">your address</label>
-                            <input id="peminjam_alamat"
-                                class="form-control rounded-top @error('peminjam_alamat') is-invalid @enderror"
-                                name="peminjam_alamat" type="text" placeholder="enter your address" required>
-                            @error('peminjam_alamat')
+                            <label for="alamat">your address</label>
+                            <input id="alamat" class="form-control rounded-top @error('alamat') is-invalid @enderror"
+                                name="alamat" type="text" placeholder="enter your address" required>
+                            @error('alamat')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="peminjam_telp">your phone number</label>
-                            <input id="peminjam_telp"
-                                class="form-control rounded-top @error('peminjam_telp') is-invalid @enderror"
-                                name="peminjam_telp" type="text" placeholder="enter your phone number" required>
-                            @error('peminjam_telp')
+                            <label for="telp">your phone number</label>
+                            <input id="telp" class="form-control rounded-top @error('telp') is-invalid @enderror"
+                                name="telp" type="text" placeholder="enter your phone number" required>
+                            @error('telp')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -98,16 +98,11 @@
                         Already have an account? <a href="/login">Login here</a>
                     </p>
                 </div>
-
-                <div class="u-login-form text-muted py-3 mt-auto">
-                    <small><i class="far fa-question-circle mr-1"></i> If you are not able to sign up, please <a
-                            href="#">contact us</a>.</small>
-                </div>
             </div>
 
             <div class="col-lg-6 d-none d-lg-flex flex-column align-items-center justify-content-center bg-light">
-                <img class="img-fluid position-relative u-z-index-3 mx-5" src="./assets/svg/mockups/mockup.svg"
-                    alt="Image description">
+                <img class="img-fluid position-relative u-z-index-3 mx-5" src="./assets/svg/shapes/bookshelves.svg"
+                    alt="bookshelves">
 
                 <figure class="u-shape u-shape--top-right u-shape--position-5">
                     <img src="./assets/svg/shapes/shape-1.svg" alt="Image description">

@@ -17,6 +17,9 @@
 
     <!-- Theme Styles -->
     <link rel="stylesheet" href="./assets/css/theme.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/all.min.css') }}" />
 </head>
 <!-- End Head -->
 
@@ -25,7 +28,7 @@
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
                 <a class="u-login-form py-3 mb-auto" href="/login">
-                    <img class="img-fluid" src="./assets/img/logo.png" width="160" alt="stream dashboard ui kit">
+                    <h1 class="text-primary"><b><i class="m-2 fas fa-book-open"></i>Alexandria</b></h1>
                 </a>
 
                 @if (session()->has('success'))
@@ -85,8 +88,9 @@
             </div>
 
             <div class="col-lg-6 d-none d-lg-flex flex-column align-items-center justify-content-center bg-light">
-                <img class="img-fluid position-relative u-z-index-3 mx-5" src="./assets/svg/mockups/mockup.svg"
-                    alt="Image description">
+                <img class="img-fluid position-relative u-z-index-3 mx-5" src="./assets/svg/shapes/bookshelves.svg"
+                    alt="Bookshelves">
+
 
                 <figure class="u-shape u-shape--top-right u-shape--position-5">
                     <img src="./assets/svg/shapes/shape-1.svg" alt="Image description">
