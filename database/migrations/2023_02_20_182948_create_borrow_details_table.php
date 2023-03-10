@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('peminjaman_kode')->constrained('borrowings');
             $table->foreignId('buku_kode')->constrained('books');
-            $table->date('detail_tgl_kembali');
+            $table->date('detail_tgl_kembali')->references('peminjaman_tgl_hrs_kembali')->on('borrowings');
             $table->double('detail_denda');
             $table->boolean('detail_status_kembali');
             $table->timestamps();
