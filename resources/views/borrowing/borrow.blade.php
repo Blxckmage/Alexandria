@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <label>Peminjam</label>
                                     <input type="text" class="form-control" id="peminjam_kode"
-                                        value="{{ Auth::user()->peminjam_nama }}" readonly>
+                                        value="{{ Auth::user()->nama }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="borrowing_date">Tanggal Pinjam</label>

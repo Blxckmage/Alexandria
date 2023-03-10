@@ -26,8 +26,8 @@ class Borrowing extends Model
         return $this->belongsTo(Employee::class);
     }
 
-    public function borrowDetails()
+    public function details()
     {
-        return $this->hasMany(BorrowDetail::class);
+        return $this->hasMany(BorrowDetail::class, 'peminjaman_kode');
     }
 }
