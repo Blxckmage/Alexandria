@@ -19,11 +19,11 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'peminjam_nama' => 'required|max:255',
+            'nama' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:5|max:255',
-            'peminjam_alamat' => 'required|max:50',
-            'peminjam_telp' => 'required|numeric'
+            'alamat' => 'required|max:50',
+            'telp' => 'required|numeric'
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);

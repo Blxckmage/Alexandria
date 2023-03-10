@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\BorrowDetail;
+use App\Models\BorrowRequest;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -18,11 +20,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'peminjam_nama',
+        'nama',
+        'roles',
         'email',
         'password',
-        'peminjam_alamat',
-        'peminjam_telp',
+        'alamat',
+        'telp',
     ];
 
     /**
@@ -43,4 +46,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function borrowRequests()
+    {
+        return $this->hasMany(BorrowRequest::class);
+    }
+
+    public function borrowDetails()
+    {
+        return $this->hasMany(BorrowDetail::class);
+    }
 }
