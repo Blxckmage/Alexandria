@@ -1,7 +1,7 @@
 <header class="u-header">
     <div class="u-header-left">
         <a class="u-header-logo" href="/">
-            <h1><b>Perpustakaan</b></h1>
+            <h1><b><i class='m-2 fas fa-book-open'></i>Alexandria</b></h1>
         </a>
     </div>
 
@@ -23,7 +23,7 @@
                     <img class="u-avatar--xs img-fluid rounded-circle mr-2" src="{{ asset('assets/img/avatars/img1.jpg') }}"
                         alt="User Profile" />
                     <span class="text-dark d-none d-sm-inline-block">
-                        {{ auth()->user()->peminjam_nama }}
+                        {{ auth()->user()->nama }}
                         <small class="fa fa-angle-down text-muted ml-1"></small>
                     </span>
                 </a>
@@ -34,8 +34,7 @@
                         <div class="card-body">
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-4">
-                                    <a class="d-flex align-items-center link-dark"
-                                        href="/account/{{ Auth::user()->peminjam_nama }}">
+                                    <a class="d-flex align-items-center link-dark" href="/account/{{ Auth::user()->nama }}">
                                         <span class="h3 mb-0"><i class="far fa-user-circle text-muted mr-3"></i></span> View
                                         Profile
                                     </a>

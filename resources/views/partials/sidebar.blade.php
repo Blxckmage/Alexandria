@@ -3,7 +3,11 @@
             <div class="u-sidebar-inner">
                 <header class="u-sidebar-header">
                     <a class="u-sidebar-logo" href="index.html">
-                        <img class="img-fluid" src="./assets/img/logo.png" width="124" alt="Stream Dashboard" />
+                        <div class="u-header-left">
+                            <a class="u-header-logo" href="/">
+                                <h1><b>Alexandria</b></h1>
+                            </a>
+                        </div>
                     </a>
                 </header>
 
@@ -71,7 +75,7 @@
                         <hr />
 
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="/">
+                            <a class="u-sidebar-nav-menu__link" href="/tambah-petugas">
                                 <span class="u-sidebar-nav-menu__item-icon">T</span>
                                 <span class="u-sidebar-nav-menu__item-title">Tambah Petugas</span>
                             </a>
