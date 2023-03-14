@@ -6,7 +6,7 @@
             <h1 class="mb-4 text-primary">Borrow Detail</h1>
             <div class="row ">
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card mb-4">
                         <div class="card-body">
                             <h2 class="card-title">Book Information</h2>
                             <hr />

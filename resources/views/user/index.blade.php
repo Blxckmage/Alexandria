@@ -19,20 +19,55 @@
                             <tbody>
                                 <tr>
                                     <th>Nama</th>
-                                    <td>{{ Auth::user()->peminjam_nama }}</td>
+                                    <td>{{ $user->nama }}</td>
                                 </tr>
                                 <tr>
                                     <th>Email</th>
-                                    <td>{{ Auth::user()->email }}</td>
+                                    <td>{{ $user->email }}</td>
                                 </tr>
                                 <tr>
                                     <th>Alamat</th>
-                                    <td>{{ Auth::user()->peminjam_alamat }}</td>
+                                    <td>{{ $user->alamat }}</td>
                                 </tr>
                                 <tr>
                                     <th>No. Telp</th>
-                                    <td>{{ Auth::user()->peminjam_telp }}</td>
+                                    <td>{{ $user->telp }}</td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">Borrowing History</h2>
+                    <div class="table-responsive">
+                        <table class="table align-items-center justify-content-center table-flush table-hover"
+                            id="dataTableHover" style="font-size:.7rem">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Book Title</th>
+                                    <th>Tanggal Kembali</th>
+                                    <th>Denda</th>
+                                    <th>Return Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($borrowDetails as $borrow)
+                                    <tr>
+                                        <td>{{ $borrow->peminjaman_kode }}</td>
+                                        <td>{{ $borrow->book->title }}</td>
+                                        <td>{{ $borrow->tanggal_kembali }}</td>
+                                        <td>{{ $borrow->denda }}</td>
+                                        <td>{{ $borrow->return_status }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success">Kembalikan</button>
+                                            <button type="button" class="btn btn-primary">Bayar Denda</button>
+                                        </td>
+                                    </tr>
+                                @endforeach --}}
                             </tbody>
                         </table>
                     </div>

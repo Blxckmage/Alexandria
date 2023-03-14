@@ -2,6 +2,30 @@
 
 @section('main')
     <div class="u-content container">
+        {{-- @foreach ($books as $book)
+            <div class="modal fade" id="borrow-{{ $book->id }}" tabindex="-1" role="dialog" aria-labelledby="borrow-modal"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">
+                                Borrow Book</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {{ $book->title }} ({{ $book->id }})
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save
+                                changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach --}}
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show" role="alert"
                 style="position: fixed; top: 60px; right: 20px; z-index: 9999;">
@@ -35,6 +59,9 @@
             </div>
         @endif
         <div class="u-body">
+
+
+
             <h1 class="text-primary">Peminjaman</h1>
             <form method="post" action="/borrowing/search">
                 @csrf
@@ -74,8 +101,13 @@
                                                 <td>{{ $book->category->kategori_nama }}</td>
                                                 <td>{{ $book->publisher->penerbit_nama }}</td>
                                                 <td>{{ $book->buku_tahun_terbit }}</td>
-                                                <td><a href="/borrowing/borrow/{{ $book->id }}"
-                                                        class="btn btn-primary">Pinjam</a></td>
+                                                {{-- <td><a href="/borrowing/borrow/{{ $book->id }}"
+                                                        class="btn btn-primary">Pinjam</a></td> --}}
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#borrow-{{ $book->id }}">
+                                                        Borrow
+                                                    </button>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

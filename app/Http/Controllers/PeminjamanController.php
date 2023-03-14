@@ -20,6 +20,7 @@ class PeminjamanController extends Controller
         $query = $request->input('query');
         $books = Book::where('buku_judul', 'like', "%$query%")->get();
 
+
         return view('borrowing.index', [
             'books' => $books,
         ]);

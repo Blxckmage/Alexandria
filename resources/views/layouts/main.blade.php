@@ -23,9 +23,11 @@
 
     <!-- Custom Charts -->
     <style>
-        .js-doughnut-chart {
-            width: 70px !important;
-            height: 70px !important;
+        .modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
     </style>
 </head>
@@ -35,6 +37,32 @@
     @include('partials.topbar')
 
     <main class="u-main" role="main">
+        @if (isset($books))
+            @foreach ($books as $book)
+                <div class="modal fade" id="borrow-{{ $book->id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="borrow-modal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">
+                                    Borrow Book</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data={{ URL::to('/borrowing/borrow/' . $book->id) }}"
+                                    alt="QR code">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+
         @include('partials.sidebar')
 
         @yield('main')
@@ -64,22 +92,6 @@
     <script src="{{ asset('assets/js/sidebar-nav.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard-page-scripts.js') }}"></script>
-
-    <!-- Password Show  -->
-    <script>
-        function togglePassword() {
-            var passwordInput = $(this).prev('input');
-            if (passwordInput.attr('type') == 'password') {
-                passwordInput.attr('type', 'text');
-                $(this).html('<i class="fa fa-eye-slash"></i>');
-            } else {
-                passwordInput.attr('type', 'password');
-                $(this).html('<i class="fa fa-eye"></i>');
-            }
-        }
-
-        $(document).on('click', '#show-password', togglePassword);
-    </script>
 </body>
 
 </html>
