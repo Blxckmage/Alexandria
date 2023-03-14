@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
 use App\Models\BorrowRequest;
+use Carbon\Carbon;
 
 class ApprovalController extends Controller
 {
@@ -32,31 +33,23 @@ class ApprovalController extends Controller
     {
         $borrowingRequest = BorrowRequest::findOrFail($id);
 
-        $borrowingDate = $borrowingRequest->borrowing_date;
-        $returnDate = $borrowingRequest->return_date;
+        $returnDate = Carbon::parse($borrowingRequest->borrowing_date)->addMonth();
 
         $borrowing = Borrowing::create([
             'petugas_kode' => auth()->user()->id,
+            'buku_kode' => $borrowingRequest->book_id,
             'peminjam_kode' => $borrowingRequest->user->id,
-            'peminjaman_tgl' => $borrowingDate,
+            'peminjaman_tgl' => $borrowingRequest->borrowing_date,
             'peminjaman_tgl_hrs_kembali' => $returnDate,
+            'detail_denda' => 0,
+            'detail_status_kembali' => 0,
         ]);
-
-        $book = $borrowingRequest->book;
-        if ($book) {
-            $borrowing->details()->create([
-                'buku_kode' => $book->id,
-                'peminjaman_kode' => $borrowing->id,
-                'detail_tgl_kembali' => $returnDate,
-                'detail_denda' => 0,
-                'detail_status_kembali' => false,
-            ]);
-        }
 
         $borrowingRequest->update(['status' => 'approved']);
 
         return redirect('/approval')->with('success', 'Borrowing request approved.');
     }
+
 
     public function reject(Request $request, $id)
     {
