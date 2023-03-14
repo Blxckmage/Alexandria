@@ -66,6 +66,12 @@
                                         </a>
                                     </li>
                                     <li class="u-sidebar-nav-menu__item">
+                                        <a class="u-sidebar-nav-menu__link" href="/ubah-denda">
+                                            <span class="u-sidebar-nav-menu__item-icon">U</span>
+                                            <span class="u-sidebar-nav-menu__item-title">Ubah Denda</span>
+                                        </a>
+                                    </li>
+                                    <li class="u-sidebar-nav-menu__item">
                                         <a class="u-sidebar-nav-menu__link" href="/approval">
                                             <span class="u-sidebar-nav-menu__item-icon">A</span>
                                             <span class="u-sidebar-nav-menu__item-title">Approve Peminjaman</span>
