@@ -2,21 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Login Pages
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
-
-
-// Admin Pages
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ApprovalController;
-
-// Main Pages
+use App\Http\Controllers\AdminReportController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminBookController;
-
-// User
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminEmployeeController;
@@ -33,12 +26,7 @@ use App\Http\Controllers\AdminPublisherController;
 |
 */
 
-
-// General
-
-// Route::get('/', function () {
-//     return view('home');
-// })->middleware('auth');
+// All Roles
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 
@@ -51,7 +39,6 @@ Route::get('/borrowing', [PeminjamanController::class, 'index']);
 Route::post('/borrowing/search', [PeminjamanController::class, 'search']);
 Route::get('/borrowing/borrow/{id}', [PeminjamanController::class, 'borrow']);
 Route::post('/borrowing/borrow', [PeminjamanController::class, 'store']);
-
 
 // Employee
 
@@ -71,13 +58,14 @@ Route::get('/tambah-buku', [AdminBookController::class, 'index']);
 Route::post('/tambah-buku', [AdminBookController::class, 'store']);
 Route::delete('/tambah-buku/{book}', [AdminBookController::class, 'destroy']);
 
-
 // Admin
 
 Route::get('/tambah-petugas', [AdminEmployeeController::class, 'index']);
 Route::post('/tambah-petugas/update/{id}', [AdminEmployeeController::class, 'update']);
 Route::post('/tambah-petugas', [AdminEmployeeController::class, 'search']);
 
+
+Route::get('/laporan', [AdminReportController::class, 'index']);
 
 // Login
 
