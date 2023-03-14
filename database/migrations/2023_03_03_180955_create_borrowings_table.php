@@ -20,9 +20,12 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->when('users.roles', '=', 'employee');
+            $table->foreignId('buku_kode')->constrained('books');
             $table->foreignId('peminjam_kode')->constrained('users');
             $table->date('peminjaman_tgl');
             $table->date('peminjaman_tgl_hrs_kembali')->nullable();
+            $table->double('detail_denda');
+            $table->boolean('detail_status_kembali');
 
             $table->timestamps();
         });

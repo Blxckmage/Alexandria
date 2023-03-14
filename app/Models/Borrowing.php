@@ -11,9 +11,12 @@ class Borrowing extends Model
 
     protected $fillable = [
         'petugas_kode',
+        'buku_kode',
         'peminjam_kode',
         'peminjaman_tgl',
-        'peminjaman_tgl_harus_kembali',
+        'peminjaman_tgl_hrs_kembali',
+        'detail_denda',
+        'detail_status_kembali',
     ];
 
     public function borrower()
@@ -26,8 +29,18 @@ class Borrowing extends Model
         return $this->belongsTo(Employee::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'peminjam_kode');
+    }
+
     public function details()
     {
         return $this->hasMany(BorrowDetail::class, 'peminjaman_kode');
+    }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'buku_kode');
     }
 }

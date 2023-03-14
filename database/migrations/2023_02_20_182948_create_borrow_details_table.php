@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('borrow_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('peminjaman_kode')->constrained('borrowings');
-            $table->foreignId('buku_kode')->constrained('books');
-            $table->date('detail_tgl_kembali')->references('peminjaman_tgl_hrs_kembali')->on('borrowings');
+            $table->foreignId('peminjaman_kode');
+            $table->double('buku_kode');
             $table->double('detail_denda');
             $table->boolean('detail_status_kembali');
             $table->timestamps();
