@@ -2,6 +2,29 @@
 
 @section('main')
     <div class="u-body container py-5">
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert"
+                style="position: fixed; top: 60px; right: 20px; z-index: 9999;">
+                <i class="fa fa-minus-circle alert-icon mr-3"></i>
+                @foreach ($errors->all() as $error)
+                    <span>{{ $error }}</span>
+                @endforeach
+                <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        @if (session('status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert"
+                style="position: fixed; top: 60px; right: 20px; z-index: 9999;">
+                <i class="fa fa-check-circle alert-icon mr-3"></i>
+                <span> {{ session('status') }}</span>
+                <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h1 class="text-center text-primary mb-5"><b>Welcome To Our Library</b></h1>
