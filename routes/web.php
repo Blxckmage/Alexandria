@@ -7,10 +7,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ApprovalController;
-use App\Http\Controllers\AdminReportController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminBookController;
+use App\Http\Controllers\AdminDendaController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\AdminReportController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminEmployeeController;
 use App\Http\Controllers\AdminPublisherController;
@@ -31,6 +32,8 @@ use App\Http\Controllers\AdminPublisherController;
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 
 Route::get('/account/{name}', [UserController::class, 'index']);
+Route::post('/account/pay/{id}', [UserController::class, 'bayar']);
+
 
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{id}', [BookController::class, 'show']);
@@ -58,6 +61,10 @@ Route::get('/tambah-buku', [AdminBookController::class, 'index']);
 Route::post('/tambah-buku', [AdminBookController::class, 'store']);
 Route::delete('/tambah-buku/{book}', [AdminBookController::class, 'destroy']);
 
+
+Route::get('/ubah-denda', [AdminDendaController::class, 'index']);
+Route::post('/ubah-denda/{id}', [AdminDendaController::class, 'update']);
+
 // Admin
 
 Route::get('/tambah-petugas', [AdminEmployeeController::class, 'index']);
@@ -66,6 +73,7 @@ Route::post('/tambah-petugas', [AdminEmployeeController::class, 'search']);
 
 
 Route::get('/laporan', [AdminReportController::class, 'index']);
+Route::post('/laporan/print', [AdminReportController::class, 'print']);
 
 // Login
 

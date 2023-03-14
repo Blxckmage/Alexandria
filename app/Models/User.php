@@ -52,8 +52,8 @@ class User extends Authenticatable
         return $this->hasMany(BorrowRequest::class);
     }
 
-    public function borrowDetails()
+    public function borrowing()
     {
-        return $this->hasMany(BorrowDetail::class);
+        return $this->hasMany(Borrowing::class, 'peminjam_kode');
     }
 }
