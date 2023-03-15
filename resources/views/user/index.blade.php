@@ -96,10 +96,11 @@
                                         <td>{{ $borrowing->peminjaman_tgl }}</td>
                                         <td>{{ $borrowing->peminjaman_tgl_hrs_kembali }}</td>
                                         <td>Rp. {{ number_format($borrowing->detail_denda, 0, ',', '.') }}</td>
-                                        <td>{{ $borrowing->detail_status_kembali ? 'Kembali' : 'Belum Kembali' }}</td>
+                                        <td>{{ $borrowing->detail_status_kembali ? 'Returned' : 'Not Returned' }}
+                                        </td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <form action="/" method="POST">
+                                                <form action="/account/return/{{ $borrowing->id }}" method="POST">
                                                     @csrf
                                                     <button type="submit" class="btn btn-info mx-2"
                                                         {{ $borrowing->detail_denda > 0 ? 'disabled' : '' }}>Return
@@ -119,4 +120,5 @@
                 </div>
             </div>
         </div>
-</div @endsection
+    </div>
+@endsection

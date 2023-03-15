@@ -33,6 +33,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 
 Route::get('/account/{name}', [UserController::class, 'index']);
 Route::post('/account/pay/{id}', [UserController::class, 'bayar']);
+Route::post('/account/return/{id}', [UserController::class, 'return']);
 
 
 Route::get('/books', [BookController::class, 'index']);
