@@ -36,6 +36,6 @@ class UserController extends Controller
         $borrowing = Borrowing::find($id);
         $borrowing->update(['detail_status_kembali' => 1]);
 
-        return redirect()->back()->with('success', 'Fine has been paid off.');
+        return redirect()->back()->with('success', 'Book has been returned.');
     }
 }
