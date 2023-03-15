@@ -51,28 +51,7 @@
                 </header>
 
                 <div class="card-body">
-                    <div class="d-flex justify-content-between mb-4">
-                        <div>
-                            <span class="d-none d-lg-block text-muted small text-uppercase mb-1">Total Books</span>
-                            <span class="h4 text-primary">{{ $allBooks->count() }}</span>
-                        </div>
 
-                        <div class="divider divider-vertical mx-2"></div>
-
-                        <div>
-                            <span class="d-none d-lg-block text-muted small text-uppercase mb-1">Total Author</span>
-                            <span class="h4 text-info">2</span>
-                        </div>
-
-                        <div class="divider divider-vertical mx-2"></div>
-
-                        <div>
-                            <span class="d-none d-lg-block text-muted small text-uppercase mb-1">Total Category</span>
-                            <span class="h4 text-success">3</span>
-                        </div>
-
-                        <div class="divider divider-vertical"></div>
-                    </div>
 
                     <div class="table-responsive">
                         <table class="table align-middle mb-0">
@@ -103,7 +82,7 @@
                                             {{ $book->buku_pengarang }}
                                         </td>
                                         <td class="align-middle font-weight-semibold">
-                                            {{ $book->buku_pengarang }}
+                                            {{ $book->category->kategori_nama }}
                                         </td>
                                         <td class="align-middle">
                                             <a href="/books/{{ $book->id }}" class="btn btn-primary btn-sm">Details</a>
