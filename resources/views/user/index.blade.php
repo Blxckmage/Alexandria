@@ -108,7 +108,8 @@
                                                 </form>
                                                 <form action="/account/pay/{{ $borrowing->id }}" method="POST">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-warning mx-2">Pay Fine</button>
+                                                    <button type="submit" class="btn btn-warning mx-2">Pay
+                                                        Fine</button>
                                                 </form>
                                             </div>
                                         </td>

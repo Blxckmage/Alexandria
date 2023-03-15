@@ -31,4 +31,21 @@ class AdminPublisherController extends Controller
         Publisher::destroy($publisher->id);
         return redirect('tambah-penerbit')->with('success', 'Publisher has been deleted!');
     }
+
+    public function edit($id)
+    {
+        $publisher = Publisher::find($id);
+
+        return view('admin.edit.publisher-edit', [
+            'publisher' => $publisher,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $publisher = Publisher::find($id);
+        $publisher->update($request->all());
+
+        return redirect('tambah-penerbit')->with('success', 'Publisher updated successfully');
+    }
 }

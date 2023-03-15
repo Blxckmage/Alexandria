@@ -37,6 +37,15 @@
                     <div class="table-responsive p-3">
                         <table class="table align-items-center justify-content-center table-flush table-hover"
                             id="dataTableHover" style="font-size:.7rem">
+                            <div class="form-group">
+                                <label>Show</label>
+                                <select id="entries-select" class="form-select form-control">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="-1">All</option>
+                                </select>
+                            </div>
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -50,7 +59,8 @@
                                     <tr>
                                         <td>{{ $book->id }}</td>
                                         <td>{{ $book->buku_judul }}</td>
-                                        <td>{{ $book->category->kategori_nama }}</td> <td>{{ $book->buku_pengarang }}</td>
+                                        <td>{{ $book->category->kategori_nama }}</td>
+                                        <td>{{ $book->buku_pengarang }}</td>
                                         <td><a href="/books/{{ $book->id }}" class="btn btn-primary btn-sm">Details</a>
                                         </td>
                                     </tr>

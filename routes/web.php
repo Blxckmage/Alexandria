@@ -53,14 +53,20 @@ Route::post('/approval/reject/{id}', [ApprovalController::class, 'reject']);
 Route::get('/tambah-kategori', [AdminCategoryController::class, 'index']);
 Route::post('/tambah-kategori', [AdminCategoryController::class, 'store']);
 Route::delete('/tambah-kategori/{category}', [AdminCategoryController::class, 'destroy']);
+Route::get('/tambah-kategori/edit/{id}', [AdminCategoryController::class, 'edit'])->name('category.edit');
+Route::patch('/tambah-kategori/edit/{id}', [AdminCategoryController::class, 'update']);
 
 Route::get('/tambah-penerbit', [AdminPublisherController::class, 'index']);
 Route::post('/tambah-penerbit', [AdminPublisherController::class, 'store']);
 Route::delete('/tambah-penerbit/{publisher}', [AdminPublisherController::class, 'destroy']);
+Route::get('/tambah-penerbit/edit/{id}', [AdminPublisherController::class, 'edit'])->name('publisher.edit');
+Route::patch('/tambah-penerbit/edit/{id}', [AdminPublisherController::class, 'update']);
 
 Route::get('/tambah-buku', [AdminBookController::class, 'index']);
 Route::post('/tambah-buku', [AdminBookController::class, 'store']);
 Route::delete('/tambah-buku/{book}', [AdminBookController::class, 'destroy']);
+Route::get('/tambah-buku/edit/{id}', [AdminBookController::class, 'edit'])->name('book.edit');
+Route::patch('/tambah-buku/edit/{id}', [AdminBookController::class, 'update']);
 
 
 Route::get('/ubah-denda', [AdminDendaController::class, 'index']);

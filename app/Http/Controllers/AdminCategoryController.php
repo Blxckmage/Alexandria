@@ -29,4 +29,21 @@ class AdminCategoryController extends Controller
         Category::destroy($category->id);
         return redirect('tambah-kategori')->with('success', 'Category has been deleted!');
     }
+
+    public function edit($id)
+    {
+        $category = Category::find($id);
+
+        return view('admin.edit.category-edit', [
+            'category' => $category,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $category = Category::find($id);
+        $category->update($request->all());
+
+        return redirect('tambah-kategori')->with('success', 'Category updated successfully');
+    }
 }

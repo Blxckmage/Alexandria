@@ -51,6 +51,15 @@
                     </div>
                     <table class="table align-items-center justify-content-center table-flush table-hover"
                         id="dataTableHover" style="font-size:.7rem">
+                        <div class="form-group">
+                            <label>Show</label>
+                            <select id="entries-select" class="form-select form-control">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="-1">All</option>
+                            </select>
+                        </div>
                         <thead>
                             <tr>
                                 <th>ID</th>

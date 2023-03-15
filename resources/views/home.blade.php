@@ -27,10 +27,18 @@
 
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h1 class="text-center text-primary mb-5"><b>Welcome To Our Library</b></h1>
+                <h1 class="text-center text-primary mb-5"><b>Welcome To <mark>Alexandria Library</mark></b></h1>
                 <div class="text-center mb-5">
                     <img src="assets/svg/shapes/booklover.svg" class="img-fluid" alt="book stack"
                         style="max-width: 300px; height: auto;">
+                </div>
+                <div class="text-center">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">The man who does not read good books has no advantage over the man who can't read
+                            them</p>
+                        <footer class="blockquote-footer">Mark Twain, <cite title="Source Title">1895 A.D</cite>
+                        </footer>
+                    </blockquote>
                 </div>
             </div>
         </div>

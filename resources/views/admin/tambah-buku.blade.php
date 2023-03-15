@@ -83,6 +83,16 @@
                     <div class="table-responsive p-3">
                         <table class="table align-items-center justify-content-center table-flush table-hover"
                             id="dataTableHover" style="font-size:.7rem">
+                            <div class="form-group">
+                                <label>Show</label>
+                                <select id="entries-select" class="form-select form-control">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="-1">All</option>
+                                </select>
+                            </div>
+                            <label>entries</label>
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -113,19 +123,26 @@
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Are you sure?')"><i
-                                                        class="fas fa-trash-alt"></i></button>
+                                                    onclick="return confirm('Are you sure?')">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
                                             </form>
+                                            <form method="get" action="/tambah-buku/edit/{{ $book->id }}"
+                                                style="display:inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-info btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                {{-- </div> --}}
             </div>
-        </div>
 
+        </div>
     </div>
 @endsection
