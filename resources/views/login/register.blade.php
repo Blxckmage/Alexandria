@@ -48,7 +48,7 @@
                         <div class="form-group mb-4">
                             <label for="nama">Your Name</label>
                             <input id="nama" class="form-control rounded-top @error('nama') is-invalid @enderror"
-                                name="nama" type="text" placeholder="John Doe" required>
+                                name="nama" type="text" placeholder="Albert Camus" required>
                             @error('nama')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -57,14 +57,14 @@
                         <div class="form-group mb-4">
                             <label for="email">Your Email</label>
                             <input id="email" class="form-control rounded-top @error('email') is-invalid @enderror"
-                                name="email" type="email" placeholder="john.doe@example.com" required>
+                                name="email" type="email" placeholder="albert.camus@example.com" required>
                             @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="password">password</label>
+                            <label for="password">Password</label>
                             <input id="password"
                                 class="form-control rounded-top @error('password') is-invalid @enderror" name="password"
                                 type="password" placeholder="enter your password" required>
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="alamat">your address</label>
+                            <label for="alamat">Address</label>
                             <input id="alamat" class="form-control rounded-top @error('alamat') is-invalid @enderror"
                                 name="alamat" type="text" placeholder="enter your address" required>
                             @error('alamat')
@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="telp">your phone number</label>
+                            <label for="telp">Phone Number</label>
                             <input id="telp" class="form-control rounded-top @error('telp') is-invalid @enderror"
                                 name="telp" type="text" placeholder="enter your phone number" required>
                             @error('telp')
