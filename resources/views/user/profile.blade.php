@@ -36,7 +36,7 @@
     @endif
     <div class="u-content">
         <div class="u-body">
-            <h1 class="text-primary">Profile</h1>
+            <h1 class='text-primary'>Profile {{ $user->nama }}</h1>
             <div class="mb-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent small p-0">
@@ -68,62 +68,14 @@
                                 </tr>
                                 <tr>
                                     <th>Jumlah Buku Yang Belum Dikembalikan</th>
-                                    <td>{{  }}</td>
+                                    <td>{{ $user->borrowing->where('detail_status_kembali', 0)->count() }}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="card-title text-primary">Borrowing Status</h2>
-                    <div class="table-responsive">
-                        <table class="table align-items-center justify-content-center table-flush table-hover"
-                            id="dataTableHover">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Book Title</th>
-                                    <th>Borrow Date</th>
-                                    <th>Return Date</th>
-                                    <th>Fine Amount</th>
-                                    <th>Return Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($borrowings as $borrowing)
-                                    <tr>
-                                        <td>{{ $borrowing->id }}</td>
-                                        <td>{{ $borrowing->book->buku_judul }}</td>
-                                        <td>{{ $borrowing->peminjaman_tgl }}</td>
-                                        <td>{{ $borrowing->peminjaman_tgl_hrs_kembali }}</td>
-                                        <td>Rp. {{ number_format($borrowing->detail_denda, 0, ',', '.') }}</td>
-                                        <td>{{ $borrowing->detail_status_kembali ? 'Returned' : 'Not Returned' }}
-                                        </td>
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <form action="/account/return/{{ $borrowing->id }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-info mx-2"
-                                                        {{ $borrowing->detail_denda > 0 ? 'disabled' : '' }}>Return
-                                                        Book</button>
-                                                </form>
-                                                <form action="/account/pay/{{ $borrowing->id }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-warning mx-2">Pay
-                                                        Fine</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 @endsection

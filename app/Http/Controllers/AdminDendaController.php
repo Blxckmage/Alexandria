@@ -9,7 +9,8 @@ class AdminDendaController extends Controller
 {
     public function index()
     {
-        $borrowings = Borrowing::all();
+        $borrowings = Borrowing::where('detail_status_kembali', '!=', 1)->get();
+
         return view('admin.denda', [
             'borrowings' => $borrowings
         ]);

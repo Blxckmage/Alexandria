@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
 use App\Models\BorrowRequest;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ApprovalController extends Controller
 {
@@ -22,6 +23,7 @@ class ApprovalController extends Controller
         } else {
             $borrowingRequests = BorrowRequest::all();
         }
+
 
         return view('admin.approval.index', [
             "borrowingRequests" => $borrowingRequests,

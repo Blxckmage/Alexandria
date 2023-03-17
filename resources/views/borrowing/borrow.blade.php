@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label for="return_date">Batas Pengembalian</label>
                                     <input type="date" class="form-control" id="return_date" name="return_date"
-                                        value="{{ date('Y-m-d', strtotime('+1 month')) }}" readonly>
+                                        value="{{ date('Y-m-d', strtotime('+7 day')) }}" readonly>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Borrow</button>
                             </form>

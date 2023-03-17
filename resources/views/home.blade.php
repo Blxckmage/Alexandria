@@ -34,7 +34,7 @@
                 </div>
                 <div class="text-center">
                     <blockquote class="blockquote">
-                        <p class="mb-0">The man who does not read good books has no advantage over the man who can't read
+                        <p class="mb-1">The man who does not read good books has no advantage over the man who can't read
                             them</p>
                         <footer class="blockquote-footer">Mark Twain, <cite title="Source Title">1895 A.D</cite>
                         </footer>

@@ -18,6 +18,7 @@
                                     <th>Borrow Date</th>
                                     <th>Due Date</th>
                                     <th>Fine Amount</th>
+                                    <th>Unreturned Book(s)</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -27,10 +28,13 @@
                                     <tr>
                                         <td>{{ $borrowing->id }}</td>
                                         <td>{{ $borrowing->book->buku_judul }}</td>
-                                        <td>{{ $borrowing->user->nama }}</td>
+                                        <td><a
+                                                href="/account/profile/{{ $borrowing->user->id }}">{{ $borrowing->user->nama }}</a>
+                                        </td>
                                         <td>{{ $borrowing->peminjaman_tgl }}</td>
                                         <td>{{ $borrowing->peminjaman_tgl_hrs_kembali }}</td>
                                         <td>Rp. {{ number_format($borrowing->detail_denda, 0, ',', '.') }}</td>
+                                        </td>
                                         <td>{{ $borrowing->detail_status_kembali ? 'Kembali' : 'Belum Kembali' }}</td>
                                         <td>
                                             <form method="POST" action="/ubah-denda/{{ $borrowing->id }}">

@@ -61,18 +61,23 @@
                                 <th>Borrowing Date</th>
                                 <th>Return Date</th>
                                 <th>Status</th>
+                                <th>Unreturned Book</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($borrowingRequests as $borrowingRequest)
-                                <tr>
+                                <tr @if ($borrowingRequest->user->borrowing->where('detail_status_kembali', 0)->count() >= 3) class="table-danger" @endif>
                                     <td>{{ $borrowingRequest->id }}</td>
-                                    <td>{{ $borrowingRequest->user->nama }}</td>
+                                    <td><a
+                                            href="/account/profile/{{ $borrowingRequest->user->id }}">{{ $borrowingRequest->user->nama }}</a>
+                                    </td>
                                     <td>{{ $borrowingRequest->book->buku_judul }}</td>
                                     <td>{{ $borrowingRequest->borrowing_date }}</td>
                                     <td>{{ $borrowingRequest->return_date }}</td>
                                     <td>{{ $borrowingRequest->status }}</td>
+                                    <td>{{ $borrowingRequest->user->borrowing->where('detail_status_kembali', 0)->count() }}
+                                        Book(s)</td>
                                     <td>
                                         @if ($borrowingRequest->status == 'pending')
                                             <form action="/approval/approve/{{ $borrowingRequest->id }}" method="post"
@@ -92,7 +97,7 @@
                                             <form action="/approval/reject/{{ $borrowingRequest->id }}" method="post"
                                                 style="display: inline">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">reject</button>
+                                                <button type="submit" class="btn btn-danger">Reject</button>
                                             </form>
                                         @else
                                             <button type="button" class="btn btn-secondary" disabled>Approve</button>
